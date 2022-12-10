@@ -33,22 +33,29 @@
       <p class="lead">Make every hour count</p>
       <p id="currentDay" class="lead"></p>
     </header>
-
-    <div class="container">
-      <div class="row pb-2">
-        <div class="col d-flex">
-          <div class="time-block flex-fill d-flex align-items-center justify-content-center">
-            <span class="hour text-uppercase fs-5">9am</span>
+    <main>
+      <div class="container">
+        <div class="row pb-2">
+          <div class="col d-flex">
+            <div class="time-block flex-fill d-flex align-items-center justify-content-center">
+              <span class="hour text-uppercase fs-5">9am</span>
+            </div>
+          </div>
+          <div class="col-8 d-flex">
+            <textarea class="description flex-fill p-3" name="" id="" cols="30" rows="10"></textarea>
+          </div>
+          <div class="col d-flex">
+            <button class="saveBtn flex-fill"><i class="fa-solid fa-floppy-disk"></i></button>
           </div>
         </div>
-        <div class="col-8 d-flex">
-          <textarea class="description flex-fill p-3" name="" id="" cols="30" rows="10"></textarea>
-        </div>
-        <div class="col d-flex">
-          <button class="saveBtn flex-fill"><i class="fa-solid fa-floppy-disk"></i></button>
-        </div>
       </div>
-    </div>
+    </main>
+
+    <footer class="mt-4">
+      <div class="container text-center">
+        <p class="p-4">&copy; Created by Michael Yeates</p>
+      </div>
+    </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>

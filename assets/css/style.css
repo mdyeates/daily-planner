@@ -17,7 +17,8 @@ textarea {
   border: 1px solid var(--alt);
   resize: none;
   color: var(--dark);
-  border-radius: 2px;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
 }
 
 textarea:focus {
@@ -28,14 +29,14 @@ textarea:focus {
 .jumbotron {
   background-color: var(--dark);
   color: white;
-  border-bottom: 50px solid var(--alt2);
+  border-bottom: 70px solid var(--alt2);
 }
 
 .description {
   white-space: pre-wrap;
 }
 
-.container {
+main .container {
   border-left: 1px solid var(--dark);
 }
 
@@ -70,11 +71,10 @@ textarea:focus {
 
 .saveBtn {
   border-style: none;
-  border-radius: 2px;
-  border: 1px solid var(--dark);
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
   background-color: var(--alt);
   color: white;
-  margin-left: 10px;
 }
 
 .saveBtn:hover {
@@ -89,4 +89,9 @@ textarea:focus {
 .saveBtn i:hover {
   transition: all 0.2s ease-in-out;
   scale: 1.5;
+}
+
+footer {
+  background-color: var(--alt);
+  color: white;
 }
