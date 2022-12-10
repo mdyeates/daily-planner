@@ -10,35 +10,50 @@ body {
   font-size: 16px;
   line-height: 1;
   background-color: var(--light);
+  height: 100vh;
+}
+
+.saveAlertWrap {
+  background-color: var(--alt2);
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+}
+
+.saveAlertWrap p {
+  color: var(--dark);
+  height: 6vw;
 }
 
 textarea {
-  background: var(--light);
+  background-color: var(--light);
   border: 1px solid var(--alt);
   resize: none;
   color: var(--dark);
-  border-top-left-radius: 2px;
-  border-bottom-left-radius: 2px;
 }
 
 textarea:focus {
-  transition: all 0.2s ease-in-out;
-  outline: 1px solid var(--dark);
+  outline: 1px solid var(--light);
+  border: 3px solid var(--alt);
 }
 
 .jumbotron {
   background-color: var(--dark);
   color: white;
-  border-bottom: 70px solid var(--alt2);
+  margin: 0px;
+  border-radius: 0px;
+}
+
+.jumbotron p {
+  color: var(--light);
 }
 
 .description {
   white-space: pre-wrap;
 }
 
-main .container {
+/* main .container {
   border-left: 1px solid var(--dark);
-}
+} */
 
 .row {
   white-space: pre-wrap;
@@ -47,11 +62,14 @@ main .container {
 .col,
 .col-8 {
   padding: 0;
-  height: 17vh;
+  height: 10vw;
+  background-color: var(--alt);
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
 }
 
 .hour {
-  color: var(--dark);
+  color: var(--light);
 }
 
 .past {
@@ -60,19 +78,19 @@ main .container {
 }
 
 .present {
-  background-color: #ff6961;
+  background-color: #522b29;
   color: white;
 }
 
 .future {
-  background-color: #77dd77;
+  background-color: #334e58;
   color: white;
 }
 
 .saveBtn {
   border-style: none;
-  border-top-right-radius: 2px;
-  border-bottom-right-radius: 2px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
   background-color: var(--alt);
   color: white;
 }
@@ -94,4 +112,8 @@ main .container {
 footer {
   background-color: var(--alt);
   color: white;
+}
+
+.hide {
+  display: none;
 }

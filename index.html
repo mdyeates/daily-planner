@@ -29,15 +29,20 @@
 
   <body>
     <header class="jumbotron text-center">
-      <h1 class="display-3">Work Day Schedule</h1>
-      <p class="lead">Make every hour count</p>
-      <p id="currentDay" class="lead"></p>
+      <h1 class="display-4">Work Schedule</h1>
+      <p class="lead">Make <em>every</em> hour count</p>
+      <p id="currentDay"></p>
     </header>
+    <div class="saveAlertWrap mb-5">
+      <p class="d-flex align-items-center justify-content-center">
+        <span id="saveAlert" class="hide">Appointment saved &#x2713;</span>
+      </p>
+    </div>
     <main>
       <div class="container">
-        <div class="row pb-2">
+        <!-- <div class="time-block row pb-2">
           <div class="col d-flex">
-            <div class="time-block flex-fill d-flex align-items-center justify-content-center">
+            <div class="flex-fill d-flex align-items-center justify-content-center">
               <span class="hour text-uppercase fs-5">9am</span>
             </div>
           </div>
@@ -47,12 +52,12 @@
           <div class="col d-flex">
             <button class="saveBtn flex-fill"><i class="fa-solid fa-floppy-disk"></i></button>
           </div>
-        </div>
+        </div> -->
       </div>
     </main>
 
-    <footer class="mt-4">
-      <div class="container text-center">
+    <footer class="mt-5">
+      <div class="text-center">
         <p class="p-4">&copy; Created by Michael Yeates</p>
       </div>
     </footer>
