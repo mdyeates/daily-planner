@@ -1,3 +1,4 @@
+/* || VARIABLES */
 :root {
   --light: #ededed;
   --light-red: #e0a59f;
@@ -7,6 +8,7 @@
   --transition: all 0.2s ease-in-out;
 }
 
+/* || RESETS */
 body {
   font-family: "Open Sans", sans-serif;
   font-size: 16px;
@@ -14,25 +16,7 @@ body {
   background-color: var(--light);
 }
 
-.saveAlertWrap {
-  background-color: var(--light-red);
-}
-
-.saveAlertWrap p {
-  color: var(--alt);
-  height: 6vw;
-}
-
-.description {
-  border: 1px solid var(--alt);
-  resize: none;
-}
-
-.description:focus {
-  outline: 1px solid var(--light);
-  border: 3px solid var(--alt);
-}
-
+/* || CUSTOM STYLES */
 .jumbotron {
   background-color: var(--alt);
   color: var(--light);
@@ -44,8 +28,17 @@ body {
   color: var(--light);
 }
 
-.description {
-  white-space: pre-wrap;
+.saveAlertWrap {
+  background-color: var(--light-red);
+}
+
+.saveAlertWrap p {
+  color: var(--alt);
+  height: 6vw;
+}
+
+.hide {
+  display: none;
 }
 
 .row {
@@ -62,6 +55,22 @@ body {
 
 .hour {
   color: var(--light);
+}
+
+.description {
+  white-space: pre-wrap;
+  border: 1px solid var(--alt);
+  resize: none;
+}
+
+.description:focus {
+  outline: 1px solid var(--light);
+  border: 3px solid var(--alt);
+}
+
+.description:hover {
+  background-color: var(--light);
+  transition: var(--transition);
 }
 
 .past {
@@ -87,6 +96,11 @@ body {
   font-size: 1.5vw;
 }
 
+.saveBtn:active {
+  scale: 0.95;
+  transition: var(--transition);
+}
+
 .saveBtn:hover {
   background-color: var(--alt3);
   transition: var(--transition);
@@ -95,20 +109,10 @@ body {
   border-bottom: var(--alt) 1px solid;
 }
 
-.saveBtn:active {
-  scale: 0.95;
-  transition: var(--transition);
-}
-
 .saveBtn:hover i {
   transition: var(--transition);
   color: var(--alt);
   scale: 1.2;
-}
-
-textarea:hover {
-  background-color: var(--light);
-  transition: var(--transition);
 }
 
 footer {
@@ -118,8 +122,4 @@ footer {
 
 footer p {
   margin: 0px;
-}
-
-.hide {
-  display: none;
 }
