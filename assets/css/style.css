@@ -1,44 +1,41 @@
 :root {
-  --light: #fffbe9;
-  --dark: #ad8b73;
-  --alt: #ceab93;
-  --alt2: #e3caa5;
+  --light: #ededed;
+  --light-red: #e0a59f;
+  --alt: #1f2833;
+  --alt2: #cee072;
+  --alt3: #89b0e0;
+  --transition: all 0.2s ease-in-out;
 }
 
 body {
   font-family: "Open Sans", sans-serif;
   font-size: 16px;
-  line-height: 1;
+  line-height: 1.5;
   background-color: var(--light);
-  height: 100vh;
 }
 
 .saveAlertWrap {
-  background-color: var(--alt2);
-  border-bottom-left-radius: 50px;
-  border-bottom-right-radius: 50px;
+  background-color: var(--light-red);
 }
 
 .saveAlertWrap p {
-  color: var(--dark);
+  color: var(--alt);
   height: 6vw;
 }
 
-textarea {
-  background-color: var(--light);
+.description {
   border: 1px solid var(--alt);
   resize: none;
-  color: var(--dark);
 }
 
-textarea:focus {
+.description:focus {
   outline: 1px solid var(--light);
   border: 3px solid var(--alt);
 }
 
 .jumbotron {
-  background-color: var(--dark);
-  color: white;
+  background-color: var(--alt);
+  color: var(--light);
   margin: 0px;
   border-radius: 0px;
 }
@@ -51,21 +48,16 @@ textarea:focus {
   white-space: pre-wrap;
 }
 
-/* main .container {
-  border-left: 1px solid var(--dark);
-} */
-
 .row {
   white-space: pre-wrap;
 }
 
 .col,
-.col-8 {
+.col-1,
+.col-9 {
   padding: 0;
-  height: 10vw;
+  height: 8vh;
   background-color: var(--alt);
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
 }
 
 .hour {
@@ -73,45 +65,59 @@ textarea:focus {
 }
 
 .past {
-  background-color: #d3d3d3;
-  color: white;
+  color: var(--alt);
+  background-color: var(--light-red);
 }
 
 .present {
-  background-color: #522b29;
-  color: white;
+  background-color: var(--alt3);
+  color: var(--alt);
 }
 
 .future {
-  background-color: #334e58;
-  color: white;
+  background-color: var(--alt2);
+  color: var(--alt);
 }
 
 .saveBtn {
   border-style: none;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
+  border-radius: 0px;
   background-color: var(--alt);
-  color: white;
+  color: var(--light);
+  font-size: 1.5vw;
 }
 
 .saveBtn:hover {
-  background-color: var(--alt2);
-  transition: all 0.2s ease-in-out;
+  background-color: var(--alt3);
+  transition: var(--transition);
+  border-right: var(--alt) 1px solid;
+  border-top: var(--alt) 1px solid;
+  border-bottom: var(--alt) 1px solid;
 }
 
 .saveBtn:active {
-  scale: 0.98;
+  scale: 0.95;
+  transition: var(--transition);
 }
 
-.saveBtn i:hover {
-  transition: all 0.2s ease-in-out;
-  scale: 1.5;
+.saveBtn:hover i {
+  transition: var(--transition);
+  color: var(--alt);
+  scale: 1.2;
+}
+
+textarea:hover {
+  background-color: var(--light);
+  transition: var(--transition);
 }
 
 footer {
   background-color: var(--alt);
-  color: white;
+  color: var(--light);
+}
+
+footer p {
+  margin: 0px;
 }
 
 .hide {

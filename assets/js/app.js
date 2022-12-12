@@ -1,48 +1,41 @@
-/*  ---------- PSEUDO CODE -----------
-  While/For Loop that loops starting at 9 and breaks at 5
-    - For each loop generate or build html timeblock row
-      • Append timeblock to container
-        º Hour
-          - A number corresponding with the hour in 12 hour format
-        º Textarea
-          - Show existing event text, if any and allow user to input event text
-        º Save Button
-          - When clicked, store/reset the event text corresponding with the hour to localStorage
-      • Increase hour by one
-      • Check if hour is past, current or future and apply corresponding css class to timeblock
-*/
-var timeBlockEl = $(".time-block");
-var hourEl = $(".hour");
-var descriptionEl = $(".description");
+// var currentHour = parseInt(moment().format("h"));
+// var timeblockHour = $(".hour");
+// var timeblocks = $(".time-block");
 
-// Prints current day to jumbotron
-function getCurrentDay() {
+getCurrentDay = () => {
   var currentDayEl = $("#currentDay");
-  var currentDay = moment().format("MMMM Do, YYYY");
+  var currentDay = moment(new Date()).format("MMMM Do, YYYY");
   currentDayEl.text(currentDay);
-}
+};
 
-function displayTimeblocks() {
+getCurrentTime = () => {
+  var currentTimeEl = $("#currentTime");
+  var currentTime = moment().format("h:mm a");
+  currentTimeEl.text(currentTime);
+};
+
+displayTimeblocks = () => {
   var container = $(".container");
   var startWork = moment(09, "HH");
   var endWork = moment(17, "HH");
 
   // Creates timeblock for each hour
   while (startWork.hour() <= endWork.hour()) {
+    var timeblockHour = startWork.format("h a");
     var timeblock = $(
-      "<div class='time-block row pb-2'>" +
+      "<div class='time-block row pb-1'>" +
         "<div class='col d-flex'>" +
         "<div class='flex-fill d-flex align-items-center justify-content-center'>" +
-        "<span class='hour text-uppercase fs-5'>" +
-        startWork.format("h a") +
+        "<span class='hour text-uppercase'>" +
+        timeblockHour +
         "</span>" +
         "</div>" +
         "</div>" +
-        "<div class='col-8 d-flex'>" +
-        "<textarea class='description flex-fill p-3' name='' id='' cols='30' rows='10'>" +
+        "<div class='col-9 d-flex'>" +
+        "<textarea class='description flex-fill p-2' name='' id='' cols='30' rows='10'>" +
         "</textarea>" +
         "</div>" +
-        "<div class='col d-flex'>" +
+        "<div class='col-1 d-flex'>" +
         "<button class='saveBtn flex-fill'>" +
         "<i class='fa-solid fa-floppy-disk'>" +
         "</i>" +
@@ -50,34 +43,72 @@ function displayTimeblocks() {
         "</div>" +
         "</div>"
     );
+
     startWork.add(1, "hours");
     timeblock.appendTo(container);
-    getSaveAlert();
+    saveInput();
   }
-}
 
-function getTimeblocks() {
-  return JSON.parse(localStorage.getItem("todos")) || [];
-}
-function saveTimeblocks() {
-  localStorage.setItem("todos", JSON.stringify(arr));
-}
+  // Assign id to each timeblock, starting at start of work
+  $(".time-block").each(function (i) {
+    $(this).attr("data-id", i + 9);
+  });
 
-function getSaveAlert() {
-  // Save Alert timeout on button click
+  getFromStorage();
+};
+
+updateColors = () => {
+  $(".time-block").each(function () {
+    var timeblockHour = parseInt($(this).attr("data-id"));
+    var currentHour = parseInt(moment().format("H"));
+
+    if (timeblockHour === currentHour) {
+      $(this).find("textarea").addClass("present");
+    } else if (timeblockHour < currentHour) {
+      $(this).find("textarea").addClass("past");
+    } else $(this).find("textarea").addClass("future");
+  });
+};
+
+saveInput = () => {
   var saveBtnEl = $(".saveBtn");
   var saveAlert = $("#saveAlert");
+  var saveAudio = new Audio("assets/sfx/save.wav");
   saveBtnEl.click(function () {
     saveAlert.removeClass("hide");
     setTimeout(() => {
       saveAlert.addClass("hide");
     }, 3000);
+    saveAudio.play();
+    var hour = $(this).parents(".time-block").data("id");
+    var inputField = $(this).parents(".time-block").find("textarea").val();
+    localStorage.setItem(hour, inputField);
   });
-}
+};
 
-function init() {
+getFromStorage = () => {
+  $(".time-block").eq(0).find(".description").val(localStorage.getItem("9"));
+  $(".time-block").eq(1).find(".description").val(localStorage.getItem("10"));
+  $(".time-block").eq(2).find(".description").val(localStorage.getItem("11"));
+  $(".time-block").eq(3).find(".description").val(localStorage.getItem("12"));
+  $(".time-block").eq(4).find(".description").val(localStorage.getItem("13"));
+  $(".time-block").eq(5).find(".description").val(localStorage.getItem("14"));
+  $(".time-block").eq(6).find(".description").val(localStorage.getItem("15"));
+  $(".time-block").eq(7).find(".description").val(localStorage.getItem("16"));
+  $(".time-block").eq(8).find(".description").val(localStorage.getItem("17"));
+};
+
+// Update time dynamically
+setInterval(() => {
+  getCurrentDay();
+  getCurrentTime();
+  updateColors();
+}, 1000);
+
+init = () => {
   getCurrentDay();
   displayTimeblocks();
-}
+  updateColors();
+};
 
 init();
