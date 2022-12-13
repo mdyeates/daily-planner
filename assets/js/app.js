@@ -1,5 +1,3 @@
-var input = $(".description");
-
 // || Print todays date
 getCurrentDay = () => {
   var currentDayEl = $("#currentDay");
