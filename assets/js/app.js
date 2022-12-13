@@ -88,15 +88,14 @@ saveInput = () => {
 
 // || Print localStorage to corresponding timeblock input
 getFromStorage = () => {
-  $(".time-block").eq(0).find(".description").val(localStorage.getItem("9"));
-  $(".time-block").eq(1).find(".description").val(localStorage.getItem("10"));
-  $(".time-block").eq(2).find(".description").val(localStorage.getItem("11"));
-  $(".time-block").eq(3).find(".description").val(localStorage.getItem("12"));
-  $(".time-block").eq(4).find(".description").val(localStorage.getItem("13"));
-  $(".time-block").eq(5).find(".description").val(localStorage.getItem("14"));
-  $(".time-block").eq(6).find(".description").val(localStorage.getItem("15"));
-  $(".time-block").eq(7).find(".description").val(localStorage.getItem("16"));
-  $(".time-block").eq(8).find(".description").val(localStorage.getItem("17"));
+  $(".time-block").each(function () {
+    var storedHour = $(this).data("id");
+    var storedInput = localStorage.getItem(storedHour);
+
+    if (storedInput !== null) {
+      $(this).find(".description").val(storedInput);
+    }
+  });
 };
 
 // || Make clock tick
