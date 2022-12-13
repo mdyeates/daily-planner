@@ -1,3 +1,5 @@
+var input = $(".description");
+
 // || Print todays date
 getCurrentDay = () => {
   var currentDayEl = $("#currentDay");
@@ -81,7 +83,7 @@ saveInput = () => {
     saveAudio.play();
     // Save to localStorage
     var hour = $(this).parents(".time-block").data("id");
-    var inputField = $(this).parents(".time-block").find("textarea").val();
+    var inputField = $(this).parents(".time-block").find(".description").val();
     localStorage.setItem(hour, inputField);
   });
 };
