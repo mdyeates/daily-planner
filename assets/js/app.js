@@ -61,10 +61,10 @@ updateColors = () => {
     var currentHour = parseInt(moment().format("H"));
 
     if (timeblockHour === currentHour) {
-      $(this).find("textarea").addClass("present");
+      $(this).find(".description").addClass("present");
     } else if (timeblockHour < currentHour) {
-      $(this).find("textarea").addClass("past");
-    } else $(this).find("textarea").addClass("future");
+      $(this).find(".description").addClass("past");
+    } else $(this).find(".description").addClass("future");
   });
 };
 
