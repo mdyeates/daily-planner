@@ -13,7 +13,7 @@
 <h3 align="center">Daily Planner</h3>
 
   <p align="center">
-  Make <em>every</em> hour count with this simple Daily Planner App. You can keep track of all your important appointments during a normal 9-5 work day!
+  Make <em>every</em> hour count with this simple Daily Planner App. You can keep track of all important appointments during a normal 9-5 work day!
 
 <br />
 <a href="https://github.com/mdyeates/daily-planner"><strong>Explore the docs »</strong></a>
@@ -64,8 +64,8 @@ Project Summary:
 - Timeblocks are dynamically created for the standard work day, 9am to 5pm
 - Each timeblock is colour coded based on past (red), present (blue), and future (green)
 - The user can enter an appointment on each timeblock
-- When a user clicks the save button, the corresponding appointment is saved to localStorage, a save notification is displayed and an audio sfx is played
-- If a page is refreshed, the saved appointment is displayed in the timeblock
+- When a user clicks the save button, the corresponding appointment is saved to localStorage, a save notification is displayed and an audio confirmation alert is played
+- If a page is refreshed, the saved appointment is displayed in the relevant timeblock
 
 During this project I learned how to:
 
@@ -88,7 +88,7 @@ The following animation demonstrates the application functionality:
 
 ![Daily Planner](assets/images/usagegif.gif)
 
-This application is mobile responsive:
+This application is mobile responsive and adjusts to fit different screen-sizes, for example:
 
 <img src="assets/images/mobile.png" width="300">
 
