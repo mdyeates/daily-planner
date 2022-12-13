@@ -13,7 +13,7 @@
 <h3 align="center">Daily Planner</h3>
 
   <p align="center">
-  In this Daily Planner App, you can keep track of important appointments during your 9-5 work day and make every hour count.
+  Make <em>every</em> hour count with this simple Daily Planner App. You can keep track of all your important appointments during a normal 9-5 work day!
 
 <br />
 <a href="https://github.com/mdyeates/daily-planner"><strong>Explore the docs »</strong></a>
@@ -88,7 +88,7 @@ The following animation demonstrates the application functionality:
 
 ![Daily Planner](assets/images/usagegif.gif)
 
-The application works on a variety of devices, for example:
+This application is mobile responsive:
 
 <img src="assets/images/mobile.png" width="300">
 
@@ -133,8 +133,11 @@ Project Link: [https://github.com/mdyeates/daily-planner](https://github.com/mdy
 
 ## Acknowledgments
 
+- [Moment.js Docs](https://momentjs.com/)
+- [JQuery Docs](https://jquery.com/)
 - [Flat Icon](https://www.flaticon.com/free-icons/calendar)
 - [Save SFX](https://mixkit.co/)
+- [JQuery Cheat Sheet](https://htmlcheatsheet.com/jquery/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
