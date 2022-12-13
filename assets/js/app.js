@@ -1,25 +1,23 @@
-// var currentHour = parseInt(moment().format("h"));
-// var timeblockHour = $(".hour");
-// var timeblocks = $(".time-block");
-
+// || Print todays date
 getCurrentDay = () => {
   var currentDayEl = $("#currentDay");
   var currentDay = moment(new Date()).format("MMMM Do, YYYY");
   currentDayEl.text(currentDay);
 };
 
+// || Print todays time
 getCurrentTime = () => {
   var currentTimeEl = $("#currentTime");
   var currentTime = moment().format("h:mm a");
   currentTimeEl.text(currentTime);
 };
 
+// || Create timeblocks with hours
 displayTimeblocks = () => {
-  var container = $(".container");
+  var containerEl = $(".container");
   var startWork = moment(09, "HH");
   var endWork = moment(17, "HH");
 
-  // Creates timeblock for each hour
   while (startWork.hour() <= endWork.hour()) {
     var timeblockHour = startWork.format("h a");
     var timeblock = $(
@@ -32,7 +30,7 @@ displayTimeblocks = () => {
         "</div>" +
         "</div>" +
         "<div class='col-9 d-flex'>" +
-        "<textarea class='description flex-fill p-2' name='' id='' cols='30' rows='10'>" +
+        "<textarea class='description flex-fill p-2 cols='30' rows='10'>" +
         "</textarea>" +
         "</div>" +
         "<div class='col-1 d-flex'>" +
@@ -45,11 +43,10 @@ displayTimeblocks = () => {
     );
 
     startWork.add(1, "hours");
-    timeblock.appendTo(container);
+    timeblock.appendTo(containerEl);
     saveInput();
   }
-
-  // Assign id to each timeblock, starting at start of work
+  // Add data attribute to each timeblock which equals that timeblocks corresponding hour
   $(".time-block").each(function (i) {
     $(this).attr("data-id", i + 9);
   });
@@ -57,6 +54,7 @@ displayTimeblocks = () => {
   getFromStorage();
 };
 
+// || Add relevant classes to text input to change colour based on time
 updateColors = () => {
   $(".time-block").each(function () {
     var timeblockHour = parseInt($(this).attr("data-id"));
@@ -70,22 +68,25 @@ updateColors = () => {
   });
 };
 
+// Click event for save button
 saveInput = () => {
   var saveBtnEl = $(".saveBtn");
-  var saveAlert = $("#saveAlert");
+  var saveAlertEl = $("#saveAlert");
   var saveAudio = new Audio("assets/sfx/save.wav");
   saveBtnEl.click(function () {
-    saveAlert.removeClass("hide");
+    saveAlertEl.removeClass("hide");
     setTimeout(() => {
-      saveAlert.addClass("hide");
+      saveAlertEl.addClass("hide");
     }, 3000);
     saveAudio.play();
+    // Save to localStorage
     var hour = $(this).parents(".time-block").data("id");
     var inputField = $(this).parents(".time-block").find("textarea").val();
     localStorage.setItem(hour, inputField);
   });
 };
 
+// || Print localStorage to corresponding timeblock input
 getFromStorage = () => {
   $(".time-block").eq(0).find(".description").val(localStorage.getItem("9"));
   $(".time-block").eq(1).find(".description").val(localStorage.getItem("10"));
@@ -98,7 +99,7 @@ getFromStorage = () => {
   $(".time-block").eq(8).find(".description").val(localStorage.getItem("17"));
 };
 
-// Update time dynamically
+// || Make clock tick
 setInterval(() => {
   getCurrentDay();
   getCurrentTime();
@@ -107,6 +108,7 @@ setInterval(() => {
 
 init = () => {
   getCurrentDay();
+  getCurrentTime();
   displayTimeblocks();
   updateColors();
 };
