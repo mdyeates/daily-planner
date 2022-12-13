@@ -96,6 +96,10 @@ body {
   font-size: 1.5vw;
 }
 
+.saveBtn:focus {
+  outline: transparent;
+}
+
 .saveBtn:active {
   scale: 0.95;
   transition: var(--transition);
