@@ -92,7 +92,7 @@ updateColors = () => {
     if (timeblockHour === currentHour) {
       // If it is the same, add the "present" class and remove the other classes
       $(this).find(".description").addClass("present");
-      $(this).find(".description").removeClass("furture");
+      $(this).find(".description").removeClass("future");
       $(this).find(".description").removeClass("past");
     }
     // Check if the time block hour is before the current hour
